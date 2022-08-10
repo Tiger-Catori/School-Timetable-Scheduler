@@ -1,0 +1,140 @@
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="..static/css/admin.css">
+        <link rel="stylesheet" href="..static/css/modal.css">
+        <link rel="stylesheet" href="..static/css/formStyle.css">
+
+        <title>Scheduler Admin Page</title>
+
+    </head>
+    <body>
+        <h1 class="heading">Admin</h1>
+
+        <!-- STUDENT -->
+        <div id="div1">
+                <form class="box">
+                    <h2> Student </h2>
+                    <select class="box">
+                        {% for student in students %}
+                        <option value="{{student[0]}}">{{student[1]}} {{student[2]}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="button" id="addStudent" name="addStudent" value="Add Student">
+                    <button id="remStudent" name="remStudent" value="Remove Student">Remove Student</button>
+
+                </form>
+        </div>
+
+        <!-- TEACHER -->
+        <div id="div2">
+            <form class="box">
+                <h2> Teacher </h2>
+                <select class="box">
+                    {% for teacher in teachers %}
+                    <option value="{{teacher[0]}}">{{teacher[1]}} {{teacher[2]}}</option>
+                    {% endfor %}
+                </select>
+                <input type="button" id="addTeacher" name="addTeacher" value="Add Teacher">
+                <button name="removeTeacher" value="Remove Teacher">Remove Teacher</button>
+            </form>
+        </div>
+
+
+
+        <!-- CLASS -->
+        <div id="div3">
+            <form class="box">
+                <h2> Group </h2>
+                <select class="box">
+                    {% for class in classes %}
+                    <option value="{{class[0]}}">{{class[1]}}</option>
+                    {% endfor %}
+                </select>
+                <input type="button" id="addGroup" name="addGroup" value="Add Group">
+                <button name="removeGroup" value="Remove Group">Remove Group</button>
+            </form>
+        </div>
+
+        <!-- SUBJECTS -->
+        <div id="div4">
+            <form class="box">
+                <h2> Subject </h2>
+                <select class="box">
+                    {% for subject in subjects %}
+                    <option value="{{subject[0]}}">{{subject[1]}}</option>
+                    {% endfor %}
+                </select>
+                <input type="button" id="addSubjects" name="addSubject" value="Add Subject">
+                <button name="removeSubject" value="Remove Subject">Remove Subject</button>
+
+
+            </form>
+        </div>
+
+        <div class="div5">
+            <form class="box timetable" method="post" action="/createTimetable">
+              <button>Create timetable</button>
+            </form>
+        </div>
+
+
+        <div id="teacherModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h3>Add Teacher</h3>
+                </div>
+                <div class="modal-body">
+                    {% include "teacherform.html" %}
+                </div>
+
+            </div>
+        </div>
+
+        <div id="studentModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h3>Add Student</h3>
+                </div>
+                <div class="modal-body">
+                    {% include "studentform.html" %}
+                </div>
+
+            </div>
+        </div>
+
+        <div id="subjectsModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h3>Add Subject</h3>
+                </div>
+                <div class="modal-body">
+                    {% include "subjectsform.html" %}
+                </div>
+
+            </div>
+        </div>
+
+        <div id="classModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h3>Add Class</h3>
+                </div>
+                <div class="modal-body">
+                    {% include "classform.html" %}
+                </div>
+
+            </div>
+        </div>
+
+
+        <script src="../static/scripts/script.js"></script>
+    </body>
+</html>

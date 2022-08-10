@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/formStyle.css">
+    <title>Title</title>
+</head>
+<body>
+    <form class="myForm" method="post" action="/addstudent">
+
+        <p>
+        <label>First name
+        <input type="text" name="first-name" required>
+        </label>
+        </p>
+
+        <p>
+        <label>Last name
+        <input type="text" name="last-name" required>
+        </label>
+        </p>
+
+        <p>
+        <label>Email
+        <input type="email" name="email">
+        </label>
+        </p>
+
+        <p>
+        <label>Class Name
+        <select name="class">
+            {% for class in classes %}
+            <option value="{{class[0]}}">{{class[1]}}</option>
+            {% endfor %}
+        </select>
+        </label>
+        </p>
+
+        <p><button>Confirm</button></p>
+
+    </form>
+
+</body>
+</html>
