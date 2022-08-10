@@ -1,3 +1,5 @@
+Michael Adeleye
+
 Secondary school timetable scheduler
 
 Need to link to database within app.py
