@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="content-language" content="en"/>
-    <meta charset="utf-8">
+  <head>
+    <meta http-equiv="content-language" content="en" />
+    <meta charset="utf-8" />
     <title>Timetable page</title>
-    <link href="/static/scripts/lib/main.css" rel='stylesheet'/>
-    <script src="/static/scripts/lib/main.js"></script>
+    <link href="../static/scripts/lib/main.css" rel="stylesheet" />
+    <script src="../static/scripts/lib/main.js"></script>
+  </head>
+  <body>
+    <h1>Timetable - {{ name[0] }} {{ name[1] }}</h1>
 
-</head>
-<body>
-<h1>Timetable - {{ name[0] }} {{ name[1] }}</h1>
+    <script>
 
-<script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+              weekends: false,
+              height: "auto",
+              weekNumbers: true,
+              initialView: 'timeGridWeek',
+              allDaySlot: false,
+              slotMinTime: "09:00:00",
+              slotMaxTime: "16:00:00",
+              headerToolbar: {
+                  left: 'prev, next, today',
+                  center: 'title',
+              },
+              events: [
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            weekends: false,
-            height: "auto",
-            weekNumbers: true,
-            initialView: 'timeGridWeek',
-            allDaySlot: false,
-            slotMinTime: "09:00:00",
-            slotMaxTime: "16:00:00",
-            headerToolbar: {
-                left: 'prev, next, today',
-                center: 'title',
-            },
-            events: [
-
-                {% for event in events %}
-                    {
-                        groupId: 'class',
-                        title: 'Subject: {{ event[1] }} ---- {{ event[0] }}',
-                        daysOfWeek: ['{{ event[2] }}'],
-                        startTime: '{{ event[3] }}',
-                        endTime: '{{ event[4] }}',
-                        description: 'test'
-                    },
-                {% endfor %}
-            ],
-
-
-            });
-        calendar.render();
-    });
+                  {% for event in events %}
+                      {
+                          groupId: 'class',
+                          title: 'Subject: {{ event[1] }} ---- {{ event[0] }}',
+                          daysOfWeek: ['{{ event[2] }}'],
+                          startTime: '{{ event[3] }}',
+                          endTime: '{{ event[4] }}',
+                          description: 'test'
+                      },
+                  {% endfor %}
+              ],
 
 
-</script>
+              });
+          calendar.render();
+      });
+    </script>
 
-<div id='calendar'></div>
-
-</body>
-
+    <div id="calendar"></div>
+  </body>
 </html>

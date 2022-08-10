@@ -1,54 +1,56 @@
+<form class="myForm" method="post" action="/addteacher">
+  <p>
+    <label
+      >First name
+      <input type="text" name="first-name" required />
+    </label>
+  </p>
 
-    <form class="myForm" method="post" action="/addteacher">
+  <p>
+    <label
+      >Last name
+      <input type="text" name="last-name" required />
+    </label>
+  </p>
 
+  <p>
+    <label
+      >Phone Number
+      <input type="tel" name="phone-number" />
+    </label>
+  </p>
 
-        <p>
-        <label>First name
-        <input type="text" name="first-name" required>
-        </label>
-        </p>
+  <p>
+    <label
+      >Email
+      <input type="email" name="email" />
+    </label>
+  </p>
 
-        <p>
-        <label>Last name
-        <input type="text" name="last-name" required>
-        </label>
-        </p>
+  <p>
+    <label
+      >Address
+      <input type="text" name="address" />
+    </label>
+  </p>
 
-        <p>
-        <label>Phone Number
-        <input type="tel" name="phone-number">
-        </label>
-        </p>
+  <p>
+    <label
+      >Hours per week
+      <input type="number" name="hours" />
+    </label>
+  </p>
 
-        <p>
-        <label>Email
-        <input type="email" name="email">
-        </label>
-        </p>
+  <p>
+    <label
+      >Subject Name
+      <select name="subject">
+        {% for subject in subjects %}
+        <option value="{{subject[0]}}">{{subject[1]}}</option>
+        {% endfor %}
+      </select>
+    </label>
+  </p>
 
-        <p>
-        <label>Address
-        <input type="text" name="address">
-        </label>
-        </p>
-
-         <p>
-        <label>Hours per week
-        <input type="number" name="hours">
-        </label>
-        </p>
-
-        <p>
-        <label>Subject Name
-        <select name="subject">
-            {% for subject in subjects %}
-            <option value="{{subject[0]}}">{{subject[1]}}</option>
-            {% endfor %}
-        </select>
-        </label>
-        </p>
-
-        <p><button>Confirm</button></p>
-
-    </form>
-
+  <p><button>Confirm</button></p>
+</form>
