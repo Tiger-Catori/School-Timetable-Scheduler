@@ -1,6 +1,4 @@
 from ortools.sat.python import cp_model
-#  Adapted from https://github.com/google/or-tools/blob/stable/examples/contrib/school_scheduling_sat.py
-
 
 class SchoolSchedulingProblem(object):
 
